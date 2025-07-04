@@ -14,7 +14,8 @@ AMZ Pro Viewer là một tiện ích mở rộng trình duyệt (Chrome Extensio
 - **Tích hợp dữ liệu từ khóa ngoài**: Danh sách từ khóa được quản lý trong một file riêng (`keywords.js`), giúp dễ dàng mở rộng và tùy chỉnh cho nhiều ngách hàng khác nhau (điện tử, mỹ phẩm, đồ gia dụng, đồ chơi...).
 - **Giao diện Pop-up thân thiện**: Cho phép người dùng dễ dàng chọn ngách hàng và số lần duyệt sản phẩm.
   
-![image](https://github.com/user-attachments/assets/ea55f621-9f32-4e1b-857b-d287f4ceb0b3)
+![image](https://github.com/user-attachments/assets/6e5c5182-a94b-4b39-919b-96d0f64faf95)
+
 
 ## 🕵️‍♂️ Kỹ thuật chống phát hiện Bot (Anti-Detection)
 
