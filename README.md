@@ -13,6 +13,8 @@ AMZ Pro Viewer là một tiện ích mở rộng trình duyệt (Chrome Extensio
 - **Phát hiện và điều hướng sản phẩm liên quan**: Tự động tìm và chuyển hướng đến các sản phẩm gợi ý (ví dụ: "Sản phẩm liên quan đến mặt hàng này", "Thường được mua cùng").
 - **Tích hợp dữ liệu từ khóa ngoài**: Danh sách từ khóa được quản lý trong một file riêng (`keywords.js`), giúp dễ dàng mở rộng và tùy chỉnh cho nhiều ngách hàng khác nhau (điện tử, mỹ phẩm, đồ gia dụng, đồ chơi...).
 - **Giao diện Pop-up thân thiện**: Cho phép người dùng dễ dàng chọn ngách hàng và số lần duyệt sản phẩm.
+  
+![image](https://github.com/user-attachments/assets/ea55f621-9f32-4e1b-857b-d287f4ceb0b3)
 
 ## 🕵️‍♂️ Kỹ thuật chống phát hiện Bot (Anti-Detection)
 
