@@ -1,6 +1,6 @@
 # 🛒 Amazon View Extensions
 
-> Một tiện ích mở rộng trình duyệt giúp bạn **tự động lướt xem sản phẩm Amazon** (Nhật hoặc Mỹ), phục vụ cho nghiên cứu thị trường, tăng tương tác sản phẩm, hoặc thử nghiệm bot.
+> Một tiện ích mở rộng trình duyệt giúp bạn **tự động lướt xem sản phẩm Amazon** (Nhật hoặc Mỹ), phục vụ cho checkout thuận lợi hơn :D
 
 ## 🚀 Tính năng
 
