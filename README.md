@@ -1,4 +1,4 @@
-# 🤖 AMZ Pro Viewer - Extension Amazon với hành vi thông minh
+# 🤖 Amazon View Extensions - Extension Amazon với hành vi thông minh
 
 AMZ Pro Viewer là một tiện ích mở rộng trình duyệt (Chrome Extension) được thiết kế để mô phỏng hành vi của người dùng thực khi duyệt và tương tác với các trang sản phẩm trên Amazon. Dự án này tập trung vào việc áp dụng các kỹ thuật tiên tiến để tìm kiếm sản phẩm, khám phá các mặt hàng liên quan, và đặc biệt là giảm thiểu khả năng bị các hệ thống chống bot phát hiện.
 
@@ -35,4 +35,4 @@ Dự án này sử dụng nhiều kỹ thuật để làm cho hành vi duyệt w
 Clone repository này về máy tính của bạn:
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/AMZ-Pro-Viewer.git
+git clone https://github.com/datxmilanista/Amazon-View-Extensions.git
