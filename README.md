@@ -9,6 +9,7 @@
 - Giao diện đơn giản, dễ sử dụng
 - Có thể thiết lập số lượt xem, thời gian giữa mỗi lượt, và lựa chọn quốc gia
 - Giao diện đẹp, hỗ trợ đếm thời gian chạy, vòng lặp, trạng thái hoạt động
+  
 ![image](https://github.com/user-attachments/assets/32c18fae-c629-4d3e-bc83-a2f388c82281)
 
 
