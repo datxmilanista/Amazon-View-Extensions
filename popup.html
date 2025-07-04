@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <title>AMZ AI Viewer</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="app-container">
+        <h3>✨ AMZ AI Viewer</h3>
+
+        <div class="form-group">
+            <label for="amazon-site">Chọn trang Amazon:</label>
+            <select id="amazon-site">
+                <option value="jp">Amazon Nhật Bản (JP)</option>
+                <option value="us">Amazon Mỹ (US)</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="user-profile">Hồ sơ người dùng:</label>
+            <select id="user-profile">
+                <option value="normal" selected>👨‍💼 Người dùng thường</option>
+                <option value="researcher">👩‍🔬 Người nghiên cứu kỹ</option>
+                <option value="fast_shopper">🏃 Người mua vội</option>
+            </select>
+            <p id="profile-description" class="description-text"></p>
+        </div>
+
+        <div class="form-group">
+            <label for="category">Ngách hàng:</label>
+            <select id="category">
+                <option value="electronics">Đồ điện tử & PC</option>
+                <option value="cosmetics">Mỹ phẩm & Làm đẹp</option>
+                <option value="home_goods">Đồ gia dụng & Đời sống</option>
+                <option value="toys">Đồ chơi</option>
+                <option value="health_wellness">Sức khỏe & Chăm sóc</option>
+                <option value="fashion_outdoor">Thời trang & Dã ngoại</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="loops">Số sản phẩm cần view:</label>
+            <input type="number" id="loops" value="10" min="1" max="100" />
+        </div>
+
+        <div class="btn-group">
+            <button id="start">▶️ Bắt đầu</button>
+            <button id="stop">⏹ Dừng</button>
+        </div>
+        
+        <div class="stats-container">
+             <div class="timer-group">
+                <div id="countdown">00:00</div>
+                <div id="loop-counter"></div>
+             </div>
+             <div id="session-timer"></div>
+             <div id="status" class="status"></div>
+        </div>
+
+        <div class="footer-credit">
+            Extension made by Nguyen Toan - Tele <a href="https://t.me/toansx" target="_blank" rel="noopener noreferrer">@toansx</a>
+        </div>
+    </div>
+    <script src="popup.js"></script>
+</body>
+</html>
