@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Lấy tất cả các phần tử trên giao diện
     const amazonSiteSelect = document.getElementById("amazon-site");
     const userProfileSelect = document.getElementById("user-profile");
     const profileDescription = document.getElementById("profile-description");
@@ -15,14 +14,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let timerInterval = null;
 
-    // Dữ liệu mô tả cho các Profile
     const profileDescriptions = {
         researcher: "Hành vi kỹ tính: Ưu tiên sản phẩm chất lượng, dành nhiều thời gian xem xét, có khả năng xem review và thêm vào giỏ hàng cao.",
         normal: "Hành vi cân bằng: Tốc độ và tương tác ở mức vừa phải, mô phỏng người dùng phổ thông nhất.",
         fast_shopper: "Hành vi nhanh gọn: Lướt xem rất nhanh, ít tương tác sâu, mô phỏng người dùng đã biết rõ mình muốn mua gì."
     };
 
-    // Xử lý các sự kiện của người dùng
     amazonSiteSelect.addEventListener("change", () => {
         chrome.storage.local.set({ siteKey: amazonSiteSelect.value });
     });
@@ -30,7 +27,6 @@ document.addEventListener('DOMContentLoaded', () => {
     userProfileSelect.addEventListener("change", () => {
         const selectedProfile = userProfileSelect.value;
         profileDescription.textContent = profileDescriptions[selectedProfile];
-        // Lưu toàn bộ trạng thái hiện tại
         chrome.storage.local.set({
             userProfile: selectedProfile,
             siteKey: amazonSiteSelect.value,
@@ -69,7 +65,6 @@ document.addEventListener('DOMContentLoaded', () => {
         chrome.runtime.sendMessage({ command: "stop" });
     });
     
-    // Hàm định dạng thời gian từ giây sang MM:SS
     function formatTime(totalSeconds) {
         if (totalSeconds < 0) totalSeconds = 0;
         const minutes = Math.floor(totalSeconds / 60);
@@ -77,7 +72,6 @@ document.addEventListener('DOMContentLoaded', () => {
         return `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
     }
 
-    // Quản lý và cập nhật bộ đếm giờ
     function startAndManageTimers(data) {
         if (timerInterval) clearInterval(timerInterval);
 
@@ -97,7 +91,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 1000);
     }
 
-    // Cập nhật toàn bộ giao diện dựa trên trạng thái
     function updateUI(data) {
         if (data.siteKey) amazonSiteSelect.value = data.siteKey;
         if (data.categoryKey) categorySelect.value = data.categoryKey;
@@ -132,12 +125,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const keysToGet = ['status', 'categoryKey', 'loops', 'isRunning', 'scrollEndTime', 'userProfile', 'siteKey', 'sessionStartTime', 'currentLoop'];
 
-    // Lấy dữ liệu lần đầu khi mở popup
     chrome.storage.local.get(keysToGet, (data) => {
         updateUI(data);
     });
     
-    // Lắng nghe các thay đổi từ background để cập nhật UI real-time
     chrome.storage.onChanged.addListener(() => {
         chrome.storage.local.get(keysToGet, (data) => {
             updateUI(data);
@@ -150,7 +141,6 @@ document.addEventListener('DOMContentLoaded', () => {
         sg: "amazon.sg"
     };
 
-    // Tự động phát hiện trang Amazon khi mở popup
     chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
         if (tabs[0] && tabs[0].url) {
             const url = tabs[0].url;
@@ -164,12 +154,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Lưu trạng thái khi thay đổi checkbox xem ảnh sản phẩm
     viewImageCheckbox.addEventListener('change', () => {
         chrome.storage.local.set({ viewImageRandom: viewImageCheckbox.checked });
     });
 
-    // Khi mở popup, cập nhật trạng thái checkbox
     chrome.storage.local.get(['viewImageRandom'], (data) => {
         viewImageCheckbox.checked = !!data.viewImageRandom;
     });

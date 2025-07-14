@@ -1,4 +1,4 @@
-// background.js - Phiên bản cuối cùng
+
 
 import { keywordDatabase } from './keywords.js';
 

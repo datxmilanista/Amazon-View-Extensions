@@ -2,7 +2,6 @@ function delay(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-// Hàm tự động cuộn xuống để kích hoạt lazy loading
 async function autoScroll(times = 5, scrollStep = 1000, wait = 2000) {
   for (let i = 0; i < times; i++) {
     window.scrollBy(0, scrollStep);
