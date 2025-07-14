@@ -8,7 +8,8 @@ const random = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 // Cấu hình cho từng trang Amazon
 const siteConfig = {
     jp: { domain: "https://www.amazon.co.jp" },
-    us: { domain: "https://www.amazon.com" }
+    us: { domain: "https://www.amazon.com" },
+    sg: { domain: "https://www.amazon.sg" } // Thêm cấu hình cho amazon.sg
 };
 
 // Cấu hình cho từng hồ sơ người dùng
@@ -50,7 +51,8 @@ chrome.runtime.onInstalled.addListener(() => {
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   if (message.command === "start") {
     const { siteKey, categoryKey, loops, userProfile } = message;
-    const keywordSet = keywordDatabase[siteKey] || keywordDatabase['jp'];
+    // Nếu là sg thì lấy keyword của us
+    const keywordSet = siteKey === 'sg' ? keywordDatabase['us'] : (keywordDatabase[siteKey] || keywordDatabase['jp']);
     const keywordList = keywordSet[categoryKey] || [categoryKey];
     const randomKeyword = keywordList[Math.floor(Math.random() * keywordList.length)];
     startProcess(siteKey, categoryKey, loops, userProfile, randomKeyword);
@@ -61,7 +63,8 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   } else if (message.command === "get_new_keyword") {
     (async () => {
       const data = await chrome.storage.local.get(['siteKey', 'categoryKey']);
-      const keywordSet = keywordDatabase[data.siteKey] || keywordDatabase['jp'];
+      // Nếu là sg thì lấy keyword của us
+      const keywordSet = data.siteKey === 'sg' ? keywordDatabase['us'] : (keywordDatabase[data.siteKey] || keywordDatabase['jp']);
       const keywordList = keywordSet[data.categoryKey] || [];
       const newRandomKeyword = keywordList[Math.floor(Math.random() * keywordList.length)];
       await chrome.storage.local.set({ keyword: newRandomKeyword });
@@ -75,7 +78,9 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
       chrome.tabs.update(sender.tab.id, { url: message.reviewsUrl });
     })();
     return true;
-  }
+  } else if (message.command === "update_status") {
+        chrome.storage.local.set({ status: message.status });
+    }
 });
 
 // Hàm bắt đầu một phiên làm việc mới
@@ -113,7 +118,10 @@ async function stopProcess() {
 // "Bộ não" chính, lắng nghe sự thay đổi của các tab
 chrome.tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
   // Chỉ hoạt động khi tab đã tải xong và là trang Amazon
-  if (changeInfo.status !== 'complete' || !(tab.url.includes('amazon.co.jp') || tab.url.includes('amazon.com'))) return;
+  if (
+    changeInfo.status !== 'complete' ||
+    !(tab.url.includes('amazon.co.jp') || tab.url.includes('amazon.com') || tab.url.includes('amazon.sg')) // Thêm amazon.sg
+  ) return;
 
   const data = await chrome.storage.local.get(null); // Lấy toàn bộ dữ liệu
   
@@ -147,10 +155,24 @@ chrome.tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
   // Nếu có hành động phù hợp, inject và gửi message cho actions.js
   if (action) {
     try {
-      await chrome.scripting.executeScript({ target: { tabId }, files: ['actions.js'] });
-      chrome.tabs.sendMessage(tabId, { action, ...data });
+        // Chỉ inject nếu tab là trang web hợp lệ
+        if (
+            tab.url &&
+            tab.url.startsWith('http') &&
+            !tab.url.includes('chrome://') &&
+            !tab.url.includes('about:blank') &&
+            !tab.url.includes('error')
+        ) {
+            await chrome.scripting.executeScript({ target: { tabId }, files: ['actions.js'] });
+            // Đợi một chút để script khởi tạo listener
+            setTimeout(() => {
+                chrome.tabs.sendMessage(tabId, { action, ...data });
+            }, 500); // 500ms hoặc hơn nếu cần
+        } else {
+            console.warn("Tab không hợp lệ để inject hoặc gửi message:", tab.url, `Tab ID: ${tabId}`);
+        }
     } catch (e) { 
-      console.error("Lỗi khi inject hoặc gửi message:", e, `Tab ID: ${tabId}`); 
+        console.error("Lỗi khi inject hoặc gửi message:", e, `Tab ID: ${tabId}`); 
     }
   }
 });

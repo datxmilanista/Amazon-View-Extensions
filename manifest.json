@@ -6,7 +6,8 @@
   "permissions": ["storage", "scripting", "tabs"],
  "host_permissions": [
     "https://www.amazon.co.jp/*",
-    "https://www.amazon.com/*"
+    "https://www.amazon.com/*",
+    "https://www.amazon.sg/*"
   ],
   "action": {
     "default_popup": "popup.html",
