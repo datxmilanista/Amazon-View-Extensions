@@ -138,7 +138,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const siteDomains = {
         jp: "amazon.co.jp",
         us: "amazon.com",
-        sg: "amazon.sg"
+        sg: "amazon.sg",
+        ca: "amazon.ca"
     };
 
     chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {

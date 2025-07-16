@@ -119,5 +119,64 @@ export const keywordDatabase = {
       // bổ sung thêm keyword mới
       'baby playpen', 'baby gate', 'high chair', 'baby dish set', 'baby pillow', 'baby shampoo', 'baby soap'
     ]
+  },
+
+  // Dữ liệu cho Amazon Canada (sử dụng từ khóa US)
+  ca: {
+    electronics: [
+      'iphone 15 pro', 'gaming pc build', 'logitech mx master 3s', 'bose quietcomfort ultra', 'sony wh-1000xm5',
+      'anker power bank', 'asus rog monitor', 'apple watch series 9', 'nintendo switch oled', 'kindle paperwhite',
+      'fitbit charge 6', 'dyson airwrap', 'samsung ssd 2tb', 'roborock vacuum', 'meta quest 3',
+      'jbl bluetooth speaker', 'hp pavilion laptop', 'dji mini drone', 'ecobee smart thermostat', 'gopro hero 12'
+    ],
+    cosmetics: [
+      'sk-ii essence', 'lancome serum', 'dior sauvage', 'nars foundation', 'supergoop sunscreen',
+      'estee lauder night repair', 'maybelline mascara', 'fenty beauty highlighter', 'tatcha dewy skin cream', 'elf primer',
+      'rare beauty blush', 'the ordinary niacinamide', 'benefit brow pencil', 'la roche-posay sunscreen', 'olaplex hair perfector',
+      'it cosmetics cc cream', 'clinique moisturizer', 'glossier balm dotcom', 'drunk elephant serum', 'urban decay setting spray',
+      'cerave hydrating cleanser', 'korean sheet mask', 'burt\'s bees lip balm', 'milani baked blush'
+    ],
+    home_goods: [
+      'stanley tumbler', 'all-clad frying pan', 'dyson vacuum', 'the container store', 'staub cocotte',
+      'instant pot duo', 'keurig coffee maker', 'oxo pop containers', 'yeti cooler', 'ziploc vacuum bags',
+      'ninja air fryer', 'brita water pitcher', 'smeg toaster', 'le creuset dutch oven', 'simplehuman trash can',
+      'soda stream fizzi', 'martha stewart bedding', 'mopnado spin mop', 'honeywell air purifier', 'lodge cast iron skillet'
+    ],
+    toys: [
+      'lego star wars', 'barbie doll', 'hot wheels', 'magna-tiles', 'catan board game',
+      'nerf blaster', 'play-doh kit', 'pokemon cards', 'funko pop marvel', 'melissa & doug puzzles',
+      'rc monster truck', 'connect 4', 'uno flip', 'beyblade burst', 'jenga classic',
+      'bluey playset', 'lol surprise dolls', 'fisher-price laugh & learn', 'squishmallows', 'paw patrol toys',
+      'lego harry potter', 'play kitchen set', 'magnetic building blocks', 'kidkraft dollhouse'
+    ],
+    hobby_culture: [
+      'marvel comics omnibus', 'star wars black series', 'funko pop exclusive', 'd&d player\'s handbook', 'warhammer 40k combat patrol',
+      'copic markers set', 'manga box set', 'criterion collection blu-ray', 'fender stratocaster', 'gibson les paul',
+      'art supplies for adults', 'diamond painting kits', 'model car kits', 'harry potter lego', 'vinyl records'
+    ],
+    health_wellness: [
+      'optimum nutrition protein powder', 'vitamin c supplement', 'theragun massage gun', 'organic shampoo', 'smart scale',
+      'high-density foam roller', 'bcaa powder', 'multivitamin for men', 'athletic greens', 'omron blood pressure monitor',
+      'hydro flask', 'yoga mat', 'kettlebell', 'resistance bands', 'oral-b electric toothbrush',
+      'ashwagandha gummies', 'electrolyte powder', 'massage roller stick', 'immune support supplement'
+    ],
+    fashion_outdoor: [
+      'nike air force 1', 'the north face nuptse jacket', 'carhartt beanie', 'coleman sundome tent', 'patagonia baggies',
+      'new era 59fifty cap', 'adidas stan smith', 'lululemon align leggings', 'blundstone boots', 'snow peak titanium mug',
+      'keen newport h2', 'smartwool socks', 'arc\'teryx beta jacket', 'ray-ban wayfarer', 'dr. martens 1460'
+    ],
+    summer_seasonal: [
+      'portable neck fan', 'uv travel umbrella', 'swim trunks', 'cooling neck gaiter', 'womens one piece swimsuit',
+      'supergoop sunscreen', 'handheld misting fan', 'bug repellent spray', 'beach towel', 'havianas flip flops',
+      'rash guard women', 'charcoal for grilling', 'portable cooler', 'ice cream maker', 'patio furniture',
+      'inflatable pool for kids', 'sun hat women', 'sunscreen spray for face', 'camping fan battery operated'
+    ],
+    mom_baby: [
+      'pampers diapers', 'lightweight stroller', 'baby carrier ergonomic', 'baby monitor camera', 'enfamil infant formula',
+      'baby detergent', 'baby bathtub', 'newborn onesies', 'crib bedding set', 'baby wipes bulk',
+      'pacifier for newborn', 'graco car seat', 'teething toy', 'nursing pillow', 'bottle warmer',
+      // bổ sung thêm keyword mới
+      'baby playpen', 'baby gate', 'high chair', 'baby dish set', 'baby pillow', 'baby shampoo', 'baby soap'
+    ]
   }
 };

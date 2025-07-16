@@ -9,7 +9,8 @@ const random = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 const siteConfig = {
     jp: { domain: "https://www.amazon.co.jp" },
     us: { domain: "https://www.amazon.com" },
-    sg: { domain: "https://www.amazon.sg" } // Thêm cấu hình cho amazon.sg
+    sg: { domain: "https://www.amazon.sg" }, // Thêm cấu hình cho amazon.sg
+    ca: { domain: "https://www.amazon.ca" }  // Thêm cấu hình cho amazon.ca
 };
 
 // Cấu hình cho từng hồ sơ người dùng
@@ -120,7 +121,7 @@ chrome.tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
   // Chỉ hoạt động khi tab đã tải xong và là trang Amazon
   if (
     changeInfo.status !== 'complete' ||
-    !(tab.url.includes('amazon.co.jp') || tab.url.includes('amazon.com') || tab.url.includes('amazon.sg')) // Thêm amazon.sg
+    !(tab.url.includes('amazon.co.jp') || tab.url.includes('amazon.com') || tab.url.includes('amazon.sg') || tab.url.includes('amazon.ca')) // Thêm amazon.ca
   ) return;
 
   const data = await chrome.storage.local.get(null); // Lấy toàn bộ dữ liệu

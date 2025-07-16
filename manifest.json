@@ -7,7 +7,8 @@
  "host_permissions": [
     "https://www.amazon.co.jp/*",
     "https://www.amazon.com/*",
-    "https://www.amazon.sg/*"
+    "https://www.amazon.sg/*",
+    "https://www.amazon.ca/*"
   ],
   "action": {
     "default_popup": "popup.html",
